@@ -3,25 +3,53 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+  --primary-theme: #e4d804;
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  background: #000;
+  color: #fff;
+}
+
+.header__transparent {
+  -webkit-clip-path: polygon(0% 0%, 100% 0%, 75% 100%, 0% 100%);
+  clip-path: polygon(0% 0%, 100% 0%, 80% 100%, 0% 100%);
+}
+.header__transparent-2 {
+  -webkit-clip-path: polygon(0% 0%, 100% 0%, 75% 100%, 0% 100%);
+  clip-path: polygon(0% 0%, 100% 0%, 70% 100%, 0% 100%);
+}
+.header__transparent-3 {
+  -webkit-clip-path: polygon(0 0%, 100% 0%, 75% 100%, 0% 100%);
+  clip-path: polygon(35% 0%, 100% 0%, 70% 100%, 0% 100%);
+}
+
+.home_section_header {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 32px;
+}
+
+.custom-btn {
+  text-transform: uppercase;
+  border-radius: 24px;
+  border: 1px solid var(--primary-theme);
+  padding: 6px 20px;
+}
+.custom-btn:hover {
+  background: var(--primary-theme);
+  color: #000;
+  /* font-weight: 600; */
+}
+
+.upcoming_movies_container {
+  background-image: url("/upcoming-movies-bg.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.best_tv_series_container {
+  background-image: url("/best-tv-shows.jpg");
+  background-size: cover;
+  background-position: center;
 }
