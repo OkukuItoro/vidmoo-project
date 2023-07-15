@@ -2,7 +2,7 @@ import { IconContext } from "react-icons";
 import { MdMovie, MdWatchLater, MdOutlineHistory } from "react-icons/md";
 import { CgInsights } from "react-icons/cg";
 import { PiTelevisionBold } from "react-icons/pi";
-import { BiLogOut, BiCategory } from "react-icons/bi";
+import { BiLogOut, BiCategory, BiSearch } from "react-icons/bi";
 
 interface SideBarIconProp {
   icon: string;
@@ -19,6 +19,8 @@ const SideBarIcons = ({ icon }: SideBarIconProp) => {
         return <CgInsights />;
       case "genres":
         return <BiCategory />;
+      case "search":
+        return <BiSearch />;
       case "watch-later":
         return <MdWatchLater />;
       case "history":
