@@ -35,6 +35,6 @@ export const upcomingMovies: object[] = [
 
 export const sideBarItems = [
   { name: "explore", links: ["movies", "tv-shows"] },
-  { name: "advanced", links: ["insights", "genres"] },
+  { name: "advanced", links: ["search", "insights", "genres"] },
   { name: "for you", links: ["watch-later", "history"] },
 ];
