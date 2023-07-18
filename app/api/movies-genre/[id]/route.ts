@@ -3,7 +3,7 @@ import { NextApiRequest, NextApiResponse } from "next";
 import { connectToDB } from "@/utils/db";
 import { Movie } from "@/models";
 
-export const GET = async (req: NextApiRequest, res: NextApiResponse) => {
+export const GET = async (req: NextApiRequest) => {
   // const { id } = req.query;
 
   try {
