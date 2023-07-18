@@ -10,6 +10,7 @@ const GenresPage = () => {
   const [filteredShowsData, setFilteredShowsData] = useState<ShowsStateProps[]>(
     []
   );
+  const [header, setHeader] = useState("");
   const [media, setMedia] = useState("Movies");
   const [genre, setGenre] = useState<GenreProps>({
     label: "Select Genre",
@@ -17,6 +18,7 @@ const GenresPage = () => {
   });
 
   const handleSubmit = () => {
+    setHeader(`${genre} ${media}`);
     if (media == "Movies") {
       fetchMoviesGenre(genre)
         .then(function (loadedMovies) {
@@ -72,7 +74,7 @@ const GenresPage = () => {
       {/* MAIN FEATURE CONTENT SECTION */}
       <section>
         <div className="flex justify-between items-center mb-4">
-          <h1 className="text-2xl font-bold capitalize">Action Movies</h1>
+          <h1 className="text-2xl font-bold capitalize">{header}</h1>
         </div>
 
         <div className="flex gap-3 justify-between flex-wrap">
