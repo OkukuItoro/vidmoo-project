@@ -2,10 +2,6 @@ import { model, Schema, models } from "mongoose";
 import { ShowSchemaProps } from "@/types";
 
 const ShowSchema = new Schema<ShowSchemaProps>({
-  genres: {
-    type: Schema.Types.ObjectId,
-    ref: "ShowGenre",
-  },
   backdrop_path: String,
   first_air_date: String,
   genre_ids: Array,
