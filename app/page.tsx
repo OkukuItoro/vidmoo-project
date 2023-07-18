@@ -14,7 +14,10 @@ import { CustomButton, ShowCase, Header, NavBar } from "@/components";
 import { dummyMovies, dummyShows } from "@/constants";
 import { DummyDataProps } from "@/types";
 
-export default function Home() {
+interface ShowCaseProps {
+  dummyData: DummyDataProps[];
+}
+export const Home = () => {
   const [vWidth, setVWidth] = useState(0);
 
   function handleResize() {
@@ -211,4 +214,6 @@ export default function Home() {
       </section>
     </main>
   );
-}
+};
+
+export default Home;

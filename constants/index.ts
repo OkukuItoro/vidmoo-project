@@ -1,6 +1,6 @@
 export const navLinks: string[] = ["Home", "About", "Blog", "Contact"];
 
-export const dummyMovies: object[] = [
+export const dummyMovies = [
   {
     title: "Extraction 2",
     vote_count: 2223,
@@ -27,7 +27,7 @@ export const dummyMovies: object[] = [
   },
 ];
 
-export const dummyShows: object[] = [
+export const dummyShows = [
   {
     title: "Woman in a Veil",
     vote_count: 623,

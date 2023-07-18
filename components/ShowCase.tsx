@@ -1,4 +1,3 @@
-import { useState, useEffect } from "react";
 import { CustomButton, DummyCard } from "@/components";
 import { DummyDataProps } from "@/types";
 
