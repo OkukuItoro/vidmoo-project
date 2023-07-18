@@ -3,7 +3,7 @@ import { useState } from "react";
 import { ContentCard, CustomButton, CustomDropDown } from "@/components";
 import { showGenres, movieGenres } from "@/constants";
 import { GenreProps, MoviesStateProps, ShowsStateProps } from "@/types";
-import { fetchMoviesGenre, fetchShowsGenre } from "@/utils/fetchData";
+import { fetchMovies, fetchShows } from "@/utils/fetchData";
 
 const GenresPage = () => {
   const [filteredData, setFilteredData] = useState<MoviesStateProps[]>([]);
@@ -18,17 +18,21 @@ const GenresPage = () => {
   });
 
   const handleSubmit = () => {
-    setHeader(`${genre} ${media}`);
+    setHeader(`${genre.label} ${media}`);
     if (media == "Movies") {
-      fetchMoviesGenre(genre)
+      fetchMovies()
         .then(function (loadedMovies) {
-          setFilteredData(loadedMovies);
+          setFilteredData(
+            loadedMovies.filter((movie) => movie.genre_ids[genre.id])
+          );
         })
         .catch((err) => console.log(err));
     } else {
-      fetchShowsGenre(genre)
+      fetchShows()
         .then(function (loadedShows) {
-          setFilteredShowsData(loadedShows);
+          setFilteredShowsData(
+            loadedShows.filter((show) => show.genre_ids[genre.id])
+          );
         })
         .catch((err) => console.log(err));
     }

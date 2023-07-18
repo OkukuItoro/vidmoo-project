@@ -2,10 +2,7 @@ import { NextApiRequest, NextApiResponse } from "next";
 import { connectToDB } from "@/utils/db";
 import { Show } from "@/models";
 
-export default async function handler(
-  req: NextApiRequest,
-  res: NextApiResponse
-) {
+export const GET = async (req: NextApiRequest, res: NextApiResponse) => {
   try {
     await connectToDB();
 
@@ -16,6 +13,6 @@ export default async function handler(
 
     return res.status(200).json({ tvShows });
   } catch (error) {
-    return new Response("Failed to fetch all movies", { status: 500 });
+    return res.status(500).json({ message: "Failed to fetch all shows" });
   }
-}
+};
