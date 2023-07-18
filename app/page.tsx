@@ -40,7 +40,7 @@ const Home = () => {
       <Header vWidth={vWidth} />
 
       {/* MOVIES SECTION */}
-      <ShowCase type="movies" dummyData={dummyMovies} vWidth={vWidth} />
+      <ShowCase type="movies" dummyData={dummyMovies} />
 
       {/* SERVICES SECTION */}
       <section className="w-[100%] py-16 flex items-center justify-center">
@@ -104,7 +104,7 @@ const Home = () => {
       </section>
 
       {/* BEST TV SHOWS SECTION */}
-      <ShowCase type="shows" dummyData={dummyShows} vWidth={vWidth} />
+      <ShowCase type="shows" dummyData={dummyShows} />
 
       {/* LIVE SHOWS SECTION */}
       <section className="bg-white text-black w-[100%] h-[520px] flex items-center justify-center relative overflow-hidden">

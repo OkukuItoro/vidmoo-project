@@ -4,10 +4,9 @@ import { DummyDataProps } from "@/types";
 interface ShowCaseProps {
   type: string;
   dummyData: DummyDataProps[];
-  vWidth: number;
 }
 
-const ShowCase = ({ type, dummyData, vWidth }: ShowCaseProps) => {
+const ShowCase = ({ type, dummyData }: ShowCaseProps) => {
   return (
     <section
       className={`${
@@ -48,25 +47,14 @@ const ShowCase = ({ type, dummyData, vWidth }: ShowCaseProps) => {
 
           {/* Section Content */}
           <div className="w-full mt-8 flex flex-col items-center sm:flex-row justify-center md:justify-normal gap-8">
-            {vWidth > 950
-              ? dummyData.map((movie, i) => (
-                  <DummyCard
-                    key={i}
-                    data={movie}
-                    containerStyles="w-[25%]"
-                    imageStyles="h-[320px]"
-                  />
-                ))
-              : dummyData
-                  .slice(0, 2)
-                  .map((movie, i) => (
-                    <DummyCard
-                      key={i}
-                      data={movie}
-                      containerStyles="w-[65%] sm:w-[35%]"
-                      imageStyles="h-[320px]"
-                    />
-                  ))}
+            {dummyData.map((movie, i) => (
+              <DummyCard
+                key={i}
+                data={movie}
+                containerStyles="w-[65%] sm:w-[45%] md:w-[35%] first-of-type:hidden last-of-type:hidden md:first-of-type:block md:last-of-type:block"
+                imageStyles="h-[320px]"
+              />
+            ))}
           </div>
         </div>
       </div>

@@ -10,11 +10,7 @@ interface DummyCardProps {
   imageStyles: string;
 }
 
-const ContentCard = ({
-  data,
-  containerStyles,
-  imageStyles,
-}: DummyCardProps) => {
+const DummyCard = ({ data, containerStyles, imageStyles }: DummyCardProps) => {
   return (
     <div className={containerStyles}>
       <Image
@@ -45,4 +41,4 @@ const ContentCard = ({
   );
 };
 
-export default ContentCard;
+export default DummyCard;
