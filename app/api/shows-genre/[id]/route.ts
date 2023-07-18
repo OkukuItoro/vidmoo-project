@@ -1,10 +1,11 @@
+import { NextApiRequest, NextApiResponse } from "next";
 import { connectToDB } from "@/utils/db";
 import { Show } from "@/models";
 
-export const GET = async (req: Request, { params }) => {
+export const GET = async (req: NextApiRequest) => {
   try {
     await connectToDB();
-    const genreMovies = await Show.find({ genre_id: params.id });
+    const genreMovies = await Show.find({ genre_id: { $in: [37] } });
 
     return new Response(JSON.stringify(genreMovies), { status: 200 });
   } catch (error) {

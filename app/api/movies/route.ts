@@ -1,8 +1,9 @@
+import { NextApiRequest } from "next";
 import { connectToDB } from "@/utils/db";
 import { Movie } from "@/models";
 import { getData, urls } from "@/utils/apiData";
 
-export const GET = async (req: Request) => {
+export const GET = async (req: NextApiRequest) => {
   try {
     await connectToDB();
 
