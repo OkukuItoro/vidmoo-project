@@ -16,8 +16,7 @@ const options: OptionsProps = {
 export const urls = {
   movie:
     "https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&sort_by=popularity.desc",
-  shows:
-    "https://api.themoviedb.org/3/discover/tv?include_adult=false&include_null_first_air_dates=false&language=en-US&page=1&sort_by=popularity.desc",
+  shows: "https://api.themoviedb.org/3/discover/tv?language=en-US",
   movieGenres: "https://api.themoviedb.org/3/genre/movie/list?language=en",
   showGenres: "https://api.themoviedb.org/3/genre/tv/list?language=en",
 };
@@ -28,11 +27,11 @@ export const getData = async (url: string): Promise<void> => {
 
   const response = await data.json();
   //   Show and Movies
-  /*
+
   for (let i = 0; i < response.results.length; i++) {
-      const show = new Show({
-          adult: response.results[i]["adult"],
-          backdrop_path: response.results[i]["backdrop_path"],
+    const show = new Show({
+      adult: response.results[i]["adult"],
+      backdrop_path: response.results[i]["backdrop_path"],
       genre_ids: response.results[i]["genre_ids"],
       id: response.results[i]["id"],
       original_language: response.results[i]["original_language"],
@@ -47,15 +46,14 @@ export const getData = async (url: string): Promise<void> => {
       vote_count: response.results[i]["vote_count"],
     });
     await show.save();
-}
-*/
+  }
 
   // ShowGenres and MovieGenres
-  for (let i = 0; i < response.genres.length; i++) {
-    const movieGenre = new MovieGenre({
-      id: response.genres[i]["id"],
-      name: response.genres[i]["name"],
-    });
-    await movieGenre.save();
-  }
+  // for (let i = 0; i < response.genres.length; i++) {
+  //   const movieGenre = new MovieGenre({
+  //     id: response.genres[i]["id"],
+  //     name: response.genres[i]["name"],
+  //   });
+  //   await movieGenre.save();
+  // }
 };
