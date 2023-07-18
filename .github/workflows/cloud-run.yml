@@ -2,14 +2,14 @@ name: vidmoo
 
 on:
   push:
-    branches: 
+    branches:
       - master
       - main
 
 env:
   PROJECT_ID: ${{ secrets.CLOUD_RUN_PROJECT_NAME }}
   REGION: us-east1
-  REPO_NAME: vidmoo---movies-and-tv-shows-project
+  REPO_NAME: vidmoo-project
 
 jobs:
   build-and-deploy:
