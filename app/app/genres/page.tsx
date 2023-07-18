@@ -6,7 +6,9 @@ import { GenreProps, MoviesStateProps, ShowsStateProps } from "@/types";
 import { fetchMovies, fetchShows } from "@/utils/fetchData";
 
 const GenresPage = () => {
-  const [filteredData, setFilteredData] = useState<MoviesStateProps[]>([]);
+  const [filteredMoviesData, setFilteredMoviesData] = useState<
+    MoviesStateProps[]
+  >([]);
   const [filteredShowsData, setFilteredShowsData] = useState<ShowsStateProps[]>(
     []
   );
@@ -17,22 +19,20 @@ const GenresPage = () => {
     id: 28,
   });
 
+  let filteredMovies: MoviesStateProps[];
+
   const handleSubmit = () => {
     setHeader(`${genre.label} ${media}`);
     if (media == "Movies") {
       fetchMovies()
         .then(function (loadedMovies) {
-          setFilteredData(
-            loadedMovies.filter((movie) => movie.genre_ids[genre.id])
-          );
+          setFilteredMoviesData(loadedMovies);
         })
         .catch((err) => console.log(err));
     } else {
       fetchShows()
         .then(function (loadedShows) {
-          setFilteredShowsData(
-            loadedShows.filter((show) => show.genre_ids[genre.id])
-          );
+          setFilteredShowsData(loadedShows);
         })
         .catch((err) => console.log(err));
     }
@@ -83,22 +83,30 @@ const GenresPage = () => {
 
         <div className="flex gap-3 justify-between flex-wrap">
           {media == "Movies"
-            ? filteredData.map((item, i) => (
-                <ContentCard
-                  key={i}
-                  movieData={item}
-                  containerStyles="w-[30%] mb-4"
-                  imageStyles="h-[320px] border-[#303030] border-[1px]"
-                />
-              ))
-            : filteredShowsData.map((item, i) => (
-                <ContentCard
-                  key={i}
-                  showsData={item}
-                  containerStyles="w-[30%] mb-4"
-                  imageStyles="h-[320px] border-[#303030] border-[1px]"
-                />
-              ))}
+            ? filteredMoviesData.map((item, i) => {
+                if (item.genre_ids?.includes(genre.id)) {
+                  return (
+                    <ContentCard
+                      key={i}
+                      movieData={item}
+                      containerStyles="w-[30%] mb-4"
+                      imageStyles="h-[320px] border-[#303030] border-[1px]"
+                    />
+                  );
+                }
+              })
+            : filteredShowsData.map((item, i) => {
+                if (item.genre_ids?.includes(genre.id)) {
+                  return (
+                    <ContentCard
+                      key={i}
+                      showsData={item}
+                      containerStyles="w-[30%] mb-4"
+                      imageStyles="h-[320px] border-[#303030] border-[1px]"
+                    />
+                  );
+                }
+              })}
         </div>
       </section>
     </main>
