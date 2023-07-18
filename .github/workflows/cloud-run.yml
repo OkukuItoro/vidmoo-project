@@ -8,7 +8,6 @@ on:
 env:
   PROJECT_ID: ${{ secrets.CLOUD_RUN_PROJECT_NAME }}
   REGION: us-east1
-  # project-name but it can be anything you want
   REPO_NAME: vidmoo---movies-and-tv-shows-project
 
 jobs:
