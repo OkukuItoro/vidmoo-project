@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
+    "start": "next start -p $PORT",
     "lint": "next lint"
   },
   "dependencies": {
@@ -13,13 +13,16 @@
     "@types/react": "18.2.14",
     "@types/react-dom": "18.2.6",
     "autoprefixer": "10.4.14",
+    "chart.js": "^4.3.0",
     "mongodb": "^5.7.0",
     "mongoose": "^7.1.1",
     "next": "13.4.9",
     "postcss": "8.4.25",
     "react": "18.2.0",
+    "react-chartjs-2": "^5.2.0",
     "react-dom": "18.2.0",
     "react-icons": "^4.10.1",
+    "react-js-dropdavn": "^1.0.4",
     "tailwindcss": "3.3.2",
     "typescript": "5.1.6"
   }
