@@ -1,8 +1,7 @@
-import { NextApiRequest, NextApiResponse } from "next";
 import { connectToDB } from "@/utils/db";
 import { Show } from "@/models";
 
-export const GET = async (req: NextApiRequest, res: NextApiResponse) => {
+export const GET = async (req: Request) => {
   try {
     await connectToDB();
 
@@ -11,8 +10,8 @@ export const GET = async (req: NextApiRequest, res: NextApiResponse) => {
 
     const tvShows = await Show.find();
 
-    return res.status(200).json({ tvShows });
+    return new Response(JSON.stringify(tvShows), { status: 200 });
   } catch (error) {
-    return res.status(500).json({ message: "Failed to fetch all shows" });
+    return new Response("Failed to fetch all movies", { status: 500 });
   }
 };
