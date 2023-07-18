@@ -18,6 +18,11 @@ export interface ContentDataProps {
   reviews: number;
 }
 
+export interface SearGenreProps {
+  genre: string;
+  setGenre: (manufacturer: string) => void;
+}
+
 /* Mongoose Schemas */
 export interface MovieSchemaProps {
   genres?: Types.ObjectId;
@@ -88,4 +93,16 @@ export interface ShowsStateProps {
   poster_path: number;
   vote_average: number;
   vote_count: number;
+}
+
+export interface GenreProps {
+  label: string;
+  id: number;
+}
+
+export interface DummyDataProps {
+  title: string;
+  vote_count: number;
+  vote_average: number;
+  img: string;
 }
