@@ -3,15 +3,15 @@ import { NextApiRequest, NextApiResponse } from "next";
 import { connectToDB } from "@/utils/db";
 import { Movie } from "@/models";
 
-export const GET = async (req: NextApiRequest) => {
-  // const { id } = req.query;
+export const POST = async (req: NextApiRequest, res: NextApiResponse) => {
+  const { id } = req.body;
 
   try {
     await connectToDB();
-    const genreMovies = await Movie.find({ genre_id: { $in: [37] } });
+    const genreMovies = await Movie.find({ genre_id: { $in: [id] } });
 
     // return res.json({ id });
-    return new Response(JSON.stringify({ genreMovies }), { status: 200 });
+    return res.status(200).json({ genreMovies });
   } catch (error) {
     return new Response("Failed to fetch all movies", { status: 500 });
   }

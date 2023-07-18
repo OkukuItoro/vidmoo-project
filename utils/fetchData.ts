@@ -14,13 +14,25 @@ export const fetchShows = async (): Promise<ShowsStateProps[]> => {
 export const fetchMoviesGenre = async (
   genre: GenreProps
 ): Promise<MoviesStateProps[]> => {
-  const res = await fetch(`http://localhost:3000/api/movies-genre/${genre.id}`);
+  const res = await fetch(`http://localhost:3000/api/movies-genre`, {
+    method: "POST",
+    body: JSON.stringify({
+      label: genre.label,
+      id: genre.id,
+    }),
+  });
   return res.json();
 };
 
 export const fetchShowsGenre = async (
   genre: GenreProps
 ): Promise<ShowsStateProps[]> => {
-  const res = await fetch(`http://localhost:3000/api/shows-genre/${genre.id}`);
+  const res = await fetch(`http://localhost:3000/api/shows-genre`, {
+    method: "POST",
+    body: JSON.stringify({
+      label: genre.label,
+      id: genre.id,
+    }),
+  });
   return res.json();
 };
