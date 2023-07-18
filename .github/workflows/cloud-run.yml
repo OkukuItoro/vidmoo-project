@@ -10,6 +10,8 @@ env:
   PROJECT_ID: ${{ secrets.CLOUD_RUN_PROJECT_NAME }}
   REGION: us-east1
   REPO_NAME: vidmoo-project
+  MONGODB_URI: ${{ secrets.MONGODB_URI }}
+  BEARER_TOKEN: ${{ secrets.BEARER_TOKEN }}
 
 jobs:
   build-and-deploy:
