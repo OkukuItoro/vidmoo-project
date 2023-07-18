@@ -17,7 +17,7 @@ import { DummyDataProps } from "@/types";
 interface ShowCaseProps {
   dummyData: DummyDataProps[];
 }
-export const Home = () => {
+const Home = () => {
   const [vWidth, setVWidth] = useState(0);
 
   function handleResize() {
