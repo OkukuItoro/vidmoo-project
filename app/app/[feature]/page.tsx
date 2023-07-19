@@ -2,7 +2,7 @@
 import { MoviesStateProps, ShowsStateProps } from "@/types";
 import { fetchMovies, fetchShows } from "@/utils/fetchData";
 import { useState, useEffect } from "react";
-import { ContentCard } from "@/components";
+import { ContentCard, Loading } from "@/components";
 import Image from "next/image";
 
 interface FeaturePageProps {
@@ -20,28 +20,31 @@ const FeaturePage = ({ params }: FeaturePageProps) => {
   const [showContent, setShowContent] = useState<ShowsStateProps[]>([]);
   const [popularShows, setPopularShows] = useState<ShowsStateProps[]>([]);
 
-  // const [active, setActive] = useState(true)
+  let popularData;
+  let mainData;
 
   useEffect(() => {
     if (feature == "movies") {
       fetchMovies()
         .then(function (loadedMovies) {
-          const popularData = loadedMovies.slice(0, 4);
-          const mainData = loadedMovies.slice(4);
+          console.log(loadedMovies);
 
-          setPopularMovies(popularData);
-          setMovieContent(mainData);
+          // popularData = loadedMovies.slice(0, 4);
+          // mainData = loadedMovies.slice(4);
+
+          // setPopularMovies(popularData);
+          // setMovieContent(mainData);
         })
-        .catch((err) => console.log(err));
+        .catch((err) => console.log(err.message));
     } else {
       fetchShows()
         .then(function (loadedShows) {
-          const popularData = loadedShows.slice(0, 4);
-          const mainData = loadedShows.slice(4);
+          popularData = loadedShows.slice(0, 4);
+          mainData = loadedShows.slice(4);
           setPopularShows(popularData);
           setShowContent(mainData);
         })
-        .catch((err) => console.log(err));
+        .catch((err) => console.log(err.message));
     }
   }, []);
 
@@ -50,7 +53,7 @@ const FeaturePage = ({ params }: FeaturePageProps) => {
       {/* POPULAR CONTENT SECTION */}
       <section>
         <h1 className="text-2xl font-bold mb-4">Popular</h1>
-        <div className="w-full h-[300px] flex relative rounded-md">
+        <div className="w-full h-[30%] md:h-[300px] flex relative rounded-md">
           {feature == "movies"
             ? popularMovies.map((movie) => (
                 <Image
