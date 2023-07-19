@@ -7,6 +7,7 @@ import SideBarIcons from "./SideBarIcons";
 import CustomDropDown from "./CustomDropDown";
 import DummyCard from "./DummyCard";
 import ShowCase from "./ShowCase";
+import Loading from "./Loading";
 
 export {
   NavBar,
@@ -18,4 +19,5 @@ export {
   CustomDropDown,
   DummyCard,
   ShowCase,
+  Loading,
 };
