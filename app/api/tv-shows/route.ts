@@ -10,8 +10,11 @@ export const GET = async (req: Request) => {
 
     const tvShows = await Show.find();
 
-    return new Response(JSON.stringify(tvShows), { status: 200 });
+    return new Response(JSON.stringify({ tvShows }), { status: 200 });
   } catch (error) {
-    return new Response("Failed to fetch all movies", { status: 500 });
+    return new Response(
+      JSON.stringify({ message: "Failed to fetch all movies" }),
+      { status: 500 }
+    );
   }
 };

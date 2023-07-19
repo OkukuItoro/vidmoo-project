@@ -1,4 +1,4 @@
-import { GenreProps, MoviesStateProps, ShowsStateProps } from "@/types";
+import { MoviesStateProps, ShowsStateProps } from "@/types";
 
 interface OptionsProps {
   method: string;

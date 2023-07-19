@@ -14,7 +14,7 @@ const options: OptionsProps = {
 };
 
 export const urls = {
-  movie:
+  movies:
     "https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&sort_by=popularity.desc",
   shows: "https://api.themoviedb.org/3/discover/tv?language=en-US",
   movieGenres: "https://api.themoviedb.org/3/genre/movie/list?language=en",
@@ -29,7 +29,7 @@ export const getData = async (url: string): Promise<void> => {
   //   Show and Movies
 
   for (let i = 0; i < response.results.length; i++) {
-    const show = new Show({
+    const movie = new Movie({
       adult: response.results[i]["adult"],
       backdrop_path: response.results[i]["backdrop_path"],
       genre_ids: response.results[i]["genre_ids"],
@@ -45,7 +45,7 @@ export const getData = async (url: string): Promise<void> => {
       vote_average: response.results[i]["vote_average"],
       vote_count: response.results[i]["vote_count"],
     });
-    await show.save();
+    await movie.save();
   }
 
   // ShowGenres and MovieGenres
