@@ -67,7 +67,7 @@ const SideBar = () => {
               </h3>
               <div className="flex flex-col gap-3">
                 {item.links.map((link, i) => (
-                  <Link href={`/app/${link}`}>
+                  <Link key={i} href={`/app/${link}`}>
                     <div
                       onClick={() => setActiveLink(link)}
                       className={` ${
