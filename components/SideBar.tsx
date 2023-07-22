@@ -69,7 +69,10 @@ const SideBar = () => {
                 {item.links.map((link, i) => (
                   <Link key={i} href={`/app/${link}`}>
                     <div
-                      onClick={() => setActiveLink(link)}
+                      onClick={() => {
+                        setActiveLink(link);
+                        setToggleSideBar(false);
+                      }}
                       className={` ${
                         activeLink == link && "text-primary-theme font-semibold"
                       } hover:text-primary-theme flex gap-3 items-center capitalize`}
