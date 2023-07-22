@@ -39,7 +39,7 @@ const GenresPage = () => {
   };
 
   return (
-    <main className="w-[80%] py-8 flex flex-col gap-[50px]">
+    <main className="w-[80%] mt-[60px] py-8 flex flex-col gap-[50px]">
       <section>
         <div className="mb-8">
           <h1 className="text-2xl font-bold mb-4">Genres</h1>
@@ -48,12 +48,12 @@ const GenresPage = () => {
           </p>
         </div>
 
-        <div className="flex items-center gap-6 w-full">
-          <div className="relative w-[20%]">
+        <div className="flex items-center gap-6 w-full flex-wrap">
+          <div className="relative w-[100%] sm:w-[20%] z-30">
             <CustomDropDown type="media" media={media} setMedia={setMedia} />
           </div>
           {media == "Movies" ? (
-            <div className="relative w-[40%]">
+            <div className="relative w-[100%] sm:w-[40%]">
               <CustomDropDown
                 type="genres"
                 genre={genre}
@@ -62,7 +62,7 @@ const GenresPage = () => {
               />
             </div>
           ) : (
-            <div className="relative w-[40%]">
+            <div className="relative w-[100%] sm:w-[40%]">
               <CustomDropDown
                 type="genres"
                 genre={genre}
