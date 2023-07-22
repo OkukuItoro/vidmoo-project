@@ -29,11 +29,11 @@ const FeaturePage = ({ params }: FeaturePageProps) => {
         .then(function (loadedMovies) {
           console.log(loadedMovies);
 
-          // popularData = loadedMovies.slice(0, 4);
-          // mainData = loadedMovies.slice(4);
+          popularData = loadedMovies.slice(0, 4);
+          mainData = loadedMovies.slice(4);
 
-          // setPopularMovies(popularData);
-          // setMovieContent(mainData);
+          setPopularMovies(popularData);
+          setMovieContent(mainData);
         })
         .catch((err) => console.log(err.message));
     } else {
