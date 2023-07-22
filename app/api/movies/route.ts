@@ -9,7 +9,7 @@ export const GET = async (req: Request) => {
     /* Extract api Data to each Collection */
     // getData(urls.movieGenres);
 
-    const movies = await Movie.find();
+    const movies = Movie.find({});
 
     return new Response(JSON.stringify({ movies }), { status: 200 });
   } catch (error) {

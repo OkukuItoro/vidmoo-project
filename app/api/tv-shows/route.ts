@@ -8,7 +8,7 @@ export const GET = async (req: Request) => {
     /* Extract api Data to each Collection */
     // getData(urls.movieGenres);
 
-    const tvShows = await Show.find();
+    const tvShows = Show.find({});
 
     return new Response(JSON.stringify({ tvShows }), { status: 200 });
   } catch (error) {
